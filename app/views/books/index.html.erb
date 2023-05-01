@@ -1,4 +1,44 @@
 <h1>User info</h1>
-<div class="img">
-  <%#= image_tag @book.get_profile_image(100,100) %>
-</div>
+<%= image_tag current_user.get_profile_image(100,100) %>
+<p>name</p>
+<%= current_user.name %>
+<p>introduction</p>
+<%= current_user.introduction %><br>
+<%= link_to "edit", edit_user_path(current_user.id) %>
+<h1>New Book</h1>
+<%= form_with model: @book do |f| %>
+<p>title</p>
+<%= f.text_field :title %>
+<p>opinion</p>
+<%= f.text_field :body %>
+<%= f.submit %>
+<% end %>
+
+<h1>books</h1>
+
+<table>
+  <% @books.each do |book|%>
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= link_to user_path(book.user_id) do %>
+          <%= image_tag book.get_profile_image(50,50) %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to book_path(book) do %>
+          <%= book.title %>
+        <% end %>
+      </td>
+      <td><%= book.body %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

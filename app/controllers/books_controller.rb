@@ -7,9 +7,16 @@ class BooksController < ApplicationController
     # @user = User.find(params[:id])
   end
 
+  def create
+    @book = Book.new(book_params)
+    @book.save
+    redirect_to books_path
+  end
+
   def index
-    @book = Book.new
-    @Books = Book.all
+    @book_new = Book.new
+    @books = Book.all
+    # @book = Book.find(params[:id])
     # @user = User.find(params[:id])
   end
 
