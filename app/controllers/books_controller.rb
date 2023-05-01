@@ -1,9 +1,16 @@
 class BooksController < ApplicationController
 
-  def index
-  end
 
   def show
+    @book_new = Book.new
+    @book = Book.find(params[:id])
+    # @user = User.find(params[:id])
+  end
+
+  def index
+    @book = Book.new
+    @Books = Book.all
+    # @user = User.find(params[:id])
   end
 
   def edit
@@ -13,6 +20,12 @@ class BooksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 
 end
