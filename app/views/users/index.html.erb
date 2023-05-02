@@ -4,9 +4,12 @@
 <%= current_user.name %>
 <p>introduction</p>
 <%= current_user.introduction %><br>
-<%= link_to "edit", edit_user_path(current_user.id) %>
+<% if current_user == current_user %>
+<p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+<% end %>
+
 <h1>New Book</h1>
-<%= form_with model: @book_ do |f| %>
+<%= form_with model: @book_new do |f| %>
 <p>title</p>
 <%= f.text_field :title %>
 <p>opinion</p>

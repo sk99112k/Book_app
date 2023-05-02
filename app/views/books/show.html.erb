@@ -4,7 +4,9 @@
 <%= @book.user.name %>
 <p>introduction</p>
 <%= @book.user.introduction %><br>
-<%= link_to "edit", edit_user_path(current_user.id) %>
+<% if @book.user == current_user %>
+<p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+<% end %>
 
 <h1>New Book</h1>
 <%= form_with model: @book_new do |f| %>
@@ -35,12 +37,14 @@
       <td>
         <%= @book.body %>
       </td>
+      <% if @book.user == current_user %>
       <td>
         <%= link_to "edit", edit_book_path(current_user.id) %>
       </td>
       <td>
         <%= link_to "destroy", book_path(current_user.id), method: :delete %>
       </td>
+      <% end %>
     </tr>
   </thead>
 </table>

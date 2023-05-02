@@ -4,7 +4,10 @@
 <%= @user.name %>
 <p>introduction</p>
 <%= @user.introduction %><br>
-<%= link_to "edit", edit_user_path(current_user.id) %>
+<% if @user == current_user %>
+<p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+<% end %>
+
 <h1>New Book</h1>
 <%= form_with model: @book_new do |f| %>
 <p>title</p>
