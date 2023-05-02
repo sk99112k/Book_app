@@ -5,6 +5,7 @@
 <p>introduction</p>
 <%= @book.user.introduction %><br>
 <%= link_to "edit", edit_user_path(current_user.id) %>
+
 <h1>New Book</h1>
 <%= form_with model: @book_new do |f| %>
 <p>title</p>
@@ -19,20 +20,26 @@
   <thead>
     <tr>
       <td>
-      <%= link_to user_path(@book.user_id) do %>
-        <%= image_tag @book.user.get_profile_image(50,50) %>
-      <% end %><br>
-      <%= link_to user_path(@book.user_id) do %>
-        <%= @book.user.name %>
-      <% end %>
+        <%= link_to user_path(@book.user_id) do %>
+          <%= image_tag @book.user.get_profile_image(50,50) %>
+        <% end %><br>
+        <%= link_to user_path(@book.user_id) do %>
+          <%= @book.user.name %>
+        <% end %>
       </td>
       <td>
-      <%= link_to book_path(@book) do %>
-        <%= @book.title %>
-      <% end %>
+        <%= link_to book_path(@book) do %>
+          <%= @book.title %>
+        <% end %>
       </td>
       <td>
-      <%= @book.body %>
+        <%= @book.body %>
+      </td>
+      <td>
+        <%= link_to "edit", edit_book_path(current_user.id) %>
+      </td>
+      <td>
+        <%= link_to "destroy", book_path(current_user.id), method: :delete %>
       </td>
     </tr>
   </thead>
