@@ -1,42 +1,49 @@
-<h1>User info</h1>
-<%= image_tag current_user.get_profile_image(100,100) %>
-<p>name</p>
-<%= current_user.name %>
-<p>introduction</p>
-<%= current_user.introduction %><br>
-<% if current_user == current_user %>
-<p><%= link_to "edit", edit_user_path(current_user.id) %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <h1>User info</h1>
+      <%= image_tag current_user.get_profile_image(100,100) %>
+      <p>name</p>
+      <%= current_user.name %>
+      <p>introduction</p>
+      <%= current_user.introduction %><br>
+      <% if current_user == current_user %>
+      <p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+      <% end %>
 
-<h1>New Book</h1>
-<%= form_with model: @book_new do |f| %>
-<p>title</p>
-<%= f.text_field :title %>
-<p>opinion</p>
-<%= f.text_field :body %>
-<%= f.submit %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>title</th>
-      <th>opinion</th>
-    </tr>
-  </thead>
-  <% @users.each do |user|%>
-  <tbody>
-    <tr>
-      <td>
-        <%= image_tag user.get_profile_image(50,50) %>
-      </td>
-      <td>
-        <%= user.name %>
-      </td>
-      <td><%= user.introduction %></td>
-      <td><%= link_to  "show", user_path(user) %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+      <h1>New Book</h1>
+      <%= form_with model: @book_new do |f| %>
+      <p>title</p>
+      <%= f.text_field :title %>
+      <p>opinion</p>
+      <%= f.text_field :body %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>title</th>
+            <th>opinion</th>
+          </tr>
+        </thead>
+        <% @users.each do |user|%>
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag user.get_profile_image(50,50) %>
+            </td>
+            <td>
+              <%= user.name %>
+            </td>
+            <td><%= user.introduction %></td>
+            <td><%= link_to  "show", user_path(user) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

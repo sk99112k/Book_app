@@ -1,46 +1,53 @@
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image(100,100) %>
-<p>name</p>
-<%= @user.name %>
-<p>introduction</p>
-<%= @user.introduction %><br>
-<% if @user == current_user %>
-<p><%= link_to "edit", edit_user_path(current_user.id) %></p>
-<% end %>
-
-<h1>New Book</h1>
-<%= form_with model: @book_new do |f| %>
-<p>title</p>
-<%= f.text_field :title %>
-<p>opinion</p>
-<%= f.text_field :body %>
-<%= f.submit %>
-<% end %>
-
-<h1>Books</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-  <% @books.each do |book| %>
-  <tbody>
-    <tr>
-      <td>
-        <%= link_to user_path(book.user_id) do %>
-          <%= image_tag book.user.get_profile_image(50,50) %>
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-4">
+      <h1>User info</h1>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <p>name</p>
+      <%= @user.name %>
+      <p>introduction</p>
+      <%= @user.introduction %><br>
+      <% if @user == current_user %>
+      <p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+      <% end %>
+      
+      <h1>New Book</h1>
+      <%= form_with model: @book_new do |f| %>
+      <p>title</p>
+      <%= f.text_field :title %>
+      <p>opinion</p>
+      <%= f.text_field :body %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h1>Books</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <% @books.each do |book| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(book.user_id) do %>
+                <%= image_tag book.user.get_profile_image(50,50) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(book) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td><%= book.body %></td>
+          </tr>
+        </tbody>
         <% end %>
-      </td>
-      <td>
-        <%= link_to book_path(book) do %>
-          <%= book.title %>
-        <% end %>
-      </td>
-      <td><%= book.body %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
+      </table>
+    </div>
+  </div>
+</div>
