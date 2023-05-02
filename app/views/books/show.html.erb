@@ -1,18 +1,20 @@
+<%= flash[:notice] %>
+<%= flash[:success] %>
 <div class="container">
   <div class="row">
     <div class="col-6 col-md-4">
-      
-      <div class="error">
-      <% if @book_new.errors.any? %>
-        <%= @book_nwe.errors.count %>errors
-        <ul>
-          <% @book_new.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-      </div>
-      
+
+      <!--<div class="error">-->
+      <!--<%# if @book_new.errors.any? %>-->
+      <!--  <%#= @book_nwe.errors.count %>errors-->
+      <!--  <ul>-->
+      <!--    <%# @book_new.errors.full_messages.each do |message| %>-->
+      <!--    <li><%#= message %></li>-->
+      <!--    <%# end %>-->
+      <!--  </ul>-->
+      <!--<%# end %>-->
+      <!--</div>-->
+
       <h1>User info</h1>
       <%= image_tag @book.user.get_profile_image(100,100) %>
       <p>name</p>
@@ -22,7 +24,7 @@
       <% if @book.user == current_user %>
       <p><%= link_to "edit", edit_user_path(current_user.id) %></p>
       <% end %>
-      
+
       <h1>New Book</h1>
       <%= form_with model: @book_new do |f| %>
       <p>title</p>
@@ -32,7 +34,7 @@
       <%= f.submit %>
       <% end %>
     </div>
-    
+
     <div class="col-md-8">
       <h1>Book detail</h1>
       <table class="table">
