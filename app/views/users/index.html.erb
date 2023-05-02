@@ -6,7 +6,7 @@
 <%= current_user.introduction %><br>
 <%= link_to "edit", edit_user_path(current_user.id) %>
 <h1>New Book</h1>
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book_ do |f| %>
 <p>title</p>
 <%= f.text_field :title %>
 <p>opinion</p>
@@ -15,7 +15,6 @@
 <% end %>
 
 <table>
-  <% @users.each do |user|%>
   <thead>
     <tr>
       <th></th>
@@ -23,6 +22,7 @@
       <th>opinion</th>
     </tr>
   </thead>
+  <% @users.each do |user|%>
   <tbody>
     <tr>
       <td>
