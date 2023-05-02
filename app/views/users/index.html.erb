@@ -13,3 +13,27 @@
 <%= f.text_field :body %>
 <%= f.submit %>
 <% end %>
+
+<table>
+  <% @users.each do |user|%>
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>opinion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= image_tag user.get_profile_image(50,50) %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td><%= user.introduction %></td>
+      <td><%= link_to  "show", user_path(user) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

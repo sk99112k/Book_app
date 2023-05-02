@@ -6,7 +6,7 @@
 <%= current_user.introduction %><br>
 <%= link_to "edit", edit_user_path(current_user.id) %>
 <h1>New Book</h1>
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book_new do |f| %>
 <p>title</p>
 <%= f.text_field :title %>
 <p>opinion</p>
@@ -29,7 +29,7 @@
     <tr>
       <td>
         <%= link_to user_path(book.user_id) do %>
-          <%= image_tag book.get_profile_image(50,50) %>
+          <%= image_tag book.user.get_profile_image(50,50) %>
         <% end %>
       </td>
       <td>
