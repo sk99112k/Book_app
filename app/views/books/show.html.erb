@@ -1,19 +1,20 @@
-<%= flash[:notice] %>
-<%= flash[:success] %>
 <div class="container">
   <div class="row">
     <div class="col-6 col-md-4">
-
-      <!--<div class="error">-->
-      <!--<%# if @book_new.errors.any? %>-->
-      <!--  <%#= @book_nwe.errors.count %>errors-->
-      <!--  <ul>-->
-      <!--    <%# @book_new.errors.full_messages.each do |message| %>-->
-      <!--    <li><%#= message %></li>-->
-      <!--    <%# end %>-->
-      <!--  </ul>-->
-      <!--<%# end %>-->
-      <!--</div>-->
+      <div class="flash">
+        <%= flash[:notice] %>
+        <%= flash[:success] %>
+      </div>
+      <div class="error">
+        <% if @book_new.errors.any? %>
+          <%= @book_new.errors.count %>errors
+          <ul>
+            <% @book_new.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
 
       <h1>User info</h1>
       <%= image_tag @book.user.get_profile_image(100,100) %>

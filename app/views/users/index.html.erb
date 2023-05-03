@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
 
-    <!--<div class="error">-->
-    <!--  <%# if @book_new.errors.any? %>-->
-    <!--    <%#= @book_nwe.errors.count %>errors-->
-    <!--    <ul>-->
-    <!--      <%# @book_new.errors.full_messages.each do |message| %>-->
-    <!--      <li><%#= message %></li>-->
-    <!--      <%# end %>-->
-    <!--    </ul>-->
-    <!--  <%# end %>-->
-    <!--</div>-->
+    <div class="error">
+      <% if @book_new.errors.any? %>
+        <%= @book_new.errors.count %>errors
+        <ul>
+          <% @book_new.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
 
     <div class="col-6 col-md-4">
       <h1>User info</h1>
