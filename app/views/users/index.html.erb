@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
 
-    <div class="error">
-      <% if @book_new.errors.any? %>
-        <%= @book_new.errors.count %>errors
-        <ul>
-          <% @book_new.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
+    <!--<div class="error">-->
+    <!--  <%# if @book.errors.any? %>-->
+    <!--    <%#= @book.errors.count %>errors-->
+    <!--    <ul>-->
+    <!--      <%# @book.errors.full_messages.each do |message| %>-->
+    <!--      <li><%#= message %></li>-->
+    <!--      <%# end %>-->
+    <!--    </ul>-->
+    <!--  <%# end %>-->
+    <!--</div>-->
 
-    <div class="col-6 col-md-4">
+    <div class="col-md-3">
       <h1>User info</h1>
       <%= image_tag current_user.get_profile_image(100,100) %>
       <p>name</p>
@@ -20,19 +20,21 @@
       <p>introduction</p>
       <%= current_user.introduction %><br>
       <% if current_user == current_user %>
-      <p><%= link_to "edit", edit_user_path(current_user.id) %></p>
+        <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
       <% end %>
 
-      <h1>New Book</h1>
+      <h1>New book</h1>
       <%= form_with model: @book_new do |f| %>
-      <p>title</p>
+      <p><%= f.label :title %></p>
       <%= f.text_field :title %>
-      <p>opinion</p>
-      <%= f.text_field :body %>
-      <%= f.submit %>
+      <p><%= f.label :opinion %></p>
+      <%= f.text_area :body %>
+      <%= f.submit "Create Book" %>
       <% end %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <table class="table">
         <thead>
           <tr>
@@ -51,7 +53,7 @@
               <%= user.name %>
             </td>
             <td><%= user.introduction %></td>
-            <td><%= link_to  "show", user_path(user) %></td>
+            <td><%= link_to  "Show", user_path(user.id) %></td>
           </tr>
         </tbody>
         <% end %>
