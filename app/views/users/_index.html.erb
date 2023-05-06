@@ -1,0 +1,23 @@
+ <table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>title</th>
+      <th>opinion</th>
+    </tr>
+  </thead>
+  <% users.each do |user|%>
+  <tbody>
+    <tr>
+      <td>
+        <%= image_tag user.get_profile_image(50,50) %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td><%= user.introduction %></td>
+      <td><%= link_to  "Show", user_path(user.id) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

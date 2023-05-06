@@ -10,23 +10,10 @@
       </div>
 
       <h1>User info</h1>
-      <%= image_tag @book.user.get_profile_image(100,100) %>
-      <p>name</p>
-      <%= @book.user.name %>
-      <p>introduction</p>
-      <%= @book.user.introduction %><br>
-        <%= link_to edit_user_path(@book.user.id), class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fas fa-user-cog"></i>
-        <% end %>
+      <%= render 'users/info', user: @book %>
 
       <h1>New book</h1>
-      <%= form_with model: @book_new do |f| %>
-      <p><%= f.label :title %></p>
-      <%= f.text_field :title %>
-      <p><%= f.label :opinion %></p>
-      <%= f.text_area :body %>
-      <%= f.submit %>
-      <% end %>
+      <%= render 'books/form', book_new: @book_new %>
     </div>
 
     <div class="col-md-8 offset-md-1">
