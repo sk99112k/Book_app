@@ -5,6 +5,7 @@
       <th>Title</th>
       <th>Opinion</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <% books.each do |book| %>
@@ -31,6 +32,9 @@
             ♡ <%= book.favorites.count %>
           <% end %>
         <% end %>
+      </td>
+      <td>
+        コメント件数 : <%= book.comments.count %>
       </td>
     </tr>
   </tbody>
