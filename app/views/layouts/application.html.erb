@@ -10,10 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
       <div class="container">
-        <a class="navbar-brand" href="/"><span>Bookers</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand nav-link text-light" href="/"><span>Bookers</span></a>
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -68,15 +68,17 @@
     </nav>
   </header>
   <body>
-    <%= yield %>
+    <div style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);">
+      <%= yield %>
+    </div>
   </body>
-  <footer>
-    <div class="container mt-5">
+  <footer style="background-color: #fdf5c6;">
+    <div class="container"></div>
       <div class="row">
         <div class="mx-auto">
           <p>CopyRight Infratop.inc</p>
         </div>
       </div>
-    </div>
+
   </footer>
 </html>
