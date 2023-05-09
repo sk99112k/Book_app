@@ -1,0 +1,5 @@
+$(".follow_<%= @user.id %>").html("<%= j(render 'relationships/follow', user: @user) %>");
+$(".follower_<%= current_user.id %>").html('<%= link_to current_user.followers.count, user_followers_path(current_user) %>');
+$(".followed_<%= current_user.id %>").html('<%= link_to current_user.followeds.count, user_followeds_path(current_user) %>');
+$(".follower_<%= @user.id %>").html('<%= link_to @user.followers.count, user_followers_path(@user) %>');
+$(".followed_<%= @user.id %>").html('<%= link_to @user.followeds.count, user_followeds_path(@user) %>');
