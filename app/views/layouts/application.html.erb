@@ -8,6 +8,7 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "app" %>
   </head>
   <header>
     <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
@@ -68,7 +69,7 @@
     </nav>
   </header>
   <body>
-    <div style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);">
+    <div style="height: 100vmax; background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn">
       <%= yield %>
     </div>
   </body>
