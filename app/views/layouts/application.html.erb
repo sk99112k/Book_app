@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/css/6-1-8.css">
 
   </head>
+  <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
       <div class="container">
@@ -75,32 +76,19 @@
     </nav>
     <div class="col"></div>
   </header>
-  <body>
-    <div style="height: 100vmax; background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn">
+  <main style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn min-vh-100">
+    <div>
       <%= yield %>
-
-      <ul class="slider">
-        <li><img src="app/assets/images/img01.jpg" alt=""></li>
-        <li><img src="app/assets/images/img02.jpg" alt=""></li>
-        <li><img src="app/assets/images/img03.jpg" alt=""></li>
-        <li><img src="app/assets/images/img04.jpg" alt=""></li>
-        <li><img src="app/assets/images/img05.jpg" alt=""></li>
-      <!--/slider--></ul>
-
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/js/6-1-8.js"></script>
-
-  </body>
-  <footer style="background-color: #fdf5c6;">
-    <div class="container"></div>
+  </main>
+  <footer class="justify-center" style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);">
+    <div class="container">
       <div class="row">
         <div class="mx-auto">
           <p>CopyRight Infratop.inc</p>
         </div>
       </div>
-
+    </div>
   </footer>
+  </body>
 </html>
