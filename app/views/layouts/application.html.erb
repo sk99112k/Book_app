@@ -11,6 +11,11 @@
     <%= stylesheet_link_tag "app" %>
     <link rel="stylesheet" type="app" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="app" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-3-3/css/5-3-3.css">
+
+    <!--<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/css/6-1-8.css">
+
   </head>
   <header>
     <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
@@ -24,43 +29,43 @@
             <% if user_signed_in? %>
             <li class="current">
               <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
-              <a href="#">Home</a>
+              Home
               <% end %>
             </li>
             <li>
               <%= link_to users_path,class: 'nav-link text-light' do %>
-              <a href="#">Users</a>
+              Users
               <% end %>
             </li>
             <li>
               <%= link_to books_path,class: 'nav-link text-light' do %>
-              <a href="#">Books</a>
+              Books
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
-              <a href="#">Log out</a>
+              Log out
               <% end %>
             </li>
             <% else %>
             <li>
               <%= link_to root_path,class: 'nav-link text-light' do %>
-               <a href="#">Home</a>
+              Home
               <% end %>
             </li>
             <li>
               <%= link_to home_about_path,class: 'nav-link text-light' do %>
-              <a href="#">About</a>
+            　About
               <% end %>
             </li>
             <li>
               <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
-              <a href="#">Sign up</a>
+              Sign up
               <% end %>
             </li>
             <li>
               <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
-              <a href="#">Log in</a>
+              Log in
               <% end %>
             </li>
             <% end %>
@@ -73,7 +78,22 @@
   <body>
     <div style="height: 100vmax; background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn">
       <%= yield %>
+
+      <ul class="slider">
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_01.jpg" alt=""></li>
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_02.jpg" alt=""></li>
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_03.jpg" alt=""></li>
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_04.jpg" alt=""></li>
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_05.jpg" alt=""></li>
+        <li><img src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/img/img_06.jpg" alt=""></li>
+      <!--/slider--></ul>
+
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-8/js/6-1-8.js"></script>
+
   </body>
   <footer style="background-color: #fdf5c6;">
     <div class="container"></div>
