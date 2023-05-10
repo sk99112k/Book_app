@@ -41,7 +41,7 @@
               <%= render 'favorites/favorite', book: @book %>
             </td>
             <td class="comments_count">
-              コメント件数 : <%= @book.comments.count %>
+              <i class="fas fa-comment"></i> <%= @book.comments.count %>
             </td>
             <% if @book.user == current_user %>
             <td>
