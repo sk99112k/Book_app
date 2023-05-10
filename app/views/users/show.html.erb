@@ -13,6 +13,16 @@
 
       <h1>New book</h1>
       <%= render 'books/form', book_new: @book_new %>
+
+      <h1>New Topic</h1>
+      <%= form_with model: @topic_new do |f| %>
+      <p class="p-0"><%= f.label :image %></p>
+      <p class="p-0"><%= f.file_field :image %></p>
+      <p class="p-0"><%= f.label :description %></p>
+      <p class="p-0"><%= f.text_area :description %></p>
+      <p class="p-0"><%= f.submit "Create Topic" %></p>
+      <% end %>
+
     </div>
     <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
