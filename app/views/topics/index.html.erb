@@ -1,0 +1,18 @@
+<table>
+  <% @topics.each do |topic| %>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= topic.image %></td>
+      <td><%= topic.user.name %></td>
+      <td><%= topic.description %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>

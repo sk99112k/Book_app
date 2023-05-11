@@ -1,16 +1,19 @@
-class TopicController < ApplicationController
+class TopicsController < ApplicationController
 
-  def creaate
+  def create
     @topic_new = Topic.new(topic_params)
     @topic_new.user_id = current_user.id
     @topic_new.save
-    redirect_to topic_path()
+    redirect_to topics_path
   end
 
   def show
+    @topic = Topic.find(params[:id])
+
   end
 
   def index
+    @topics = Topic.all
   end
 
   def edit
