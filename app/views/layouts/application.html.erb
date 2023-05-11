@@ -18,77 +18,77 @@
 
   </head>
   <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+        <div class="container">
+          <a class="navbar-brand nav-link text-light" href="/"><span>Bookers</span></a>
+          <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="col-6 collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto gnavi">
+              <% if user_signed_in? %>
+              <li class="current">
+                <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+                Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to users_path,class: 'nav-link text-light' do %>
+                Users
+                <% end %>
+              </li>
+              <li>
+                <%= link_to books_path,class: 'nav-link text-light' do %>
+                Books
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+                Log out
+                <% end %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to root_path,class: 'nav-link text-light' do %>
+                Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to home_about_path,class: 'nav-link text-light' do %>
+              　About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
+                Sign up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
+                Log in
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="col"></div>
+    </header>
+    <main style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn min-vh-100">
+      <div>
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="justify-center" style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);">
       <div class="container">
-        <a class="navbar-brand nav-link text-light" href="/"><span>Bookers</span></a>
-        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="col-6 collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto gnavi">
-            <% if user_signed_in? %>
-            <li class="current">
-              <%= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
-              Home
-              <% end %>
-            </li>
-            <li>
-              <%= link_to users_path,class: 'nav-link text-light' do %>
-              Users
-              <% end %>
-            </li>
-            <li>
-              <%= link_to books_path,class: 'nav-link text-light' do %>
-              Books
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
-              Log out
-              <% end %>
-            </li>
-            <% else %>
-            <li>
-              <%= link_to root_path,class: 'nav-link text-light' do %>
-              Home
-              <% end %>
-            </li>
-            <li>
-              <%= link_to home_about_path,class: 'nav-link text-light' do %>
-            　About
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
-              Sign up
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_session_path,class: 'nav-link text-light' do %>
-              Log in
-              <% end %>
-            </li>
-            <% end %>
-          </ul>
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
         </div>
       </div>
-    </nav>
-    <div class="col"></div>
-  </header>
-  <main style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);" class="fadeIn min-vh-100">
-    <div>
-      <%= yield %>
-    </div>
-  </main>
-  <footer class="justify-center" style="background: radial-gradient(ellipse at top, #ffcf1d, transparent), radial-gradient(ellipse at bottom, #fdf5c6, transparent);">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
   </body>
 </html>
